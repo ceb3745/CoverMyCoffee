@@ -170,6 +170,7 @@ button:hover{
 }
 
 input{
+  color: black;
   border-radius: 7px;
   margin-left: 10px;
   padding: 5px;
@@ -191,5 +192,9 @@ fields{
 
 .expField{
   width: 5%;
+}
+
+.info{
+  margin: auto;
 }
 

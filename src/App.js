@@ -60,7 +60,7 @@ class App extends Component {
             isSubmitted = false;
         }
         if (isSubmitted) {
-            return <Message />;
+            return <Message brandName={this.state.giftCard}/>;
         }
         return null;
     }
@@ -152,19 +152,16 @@ class Message extends Component{
 }
 
 class Card extends Component{
-    constructor(name){
+    constructor(props){
         super();
-        this.state = {
-            name : name,
-        }
     }
 
     render(){
         return(
             <label className="container">
-                <div className="checkmark">
+                <div className>
                     <img className="card" src={card} alt={"card"}/>
-                    <p className="card-text">{this.state.name}</p>
+                    <p className="card-text">{this.props.name}</p>
                 </div>
             </label>
         );
@@ -185,21 +182,34 @@ class Purchase extends Component {
             expDateMonth: '',
             expDateYear: '',
             isSubmitted: false,
+            displayResults: false,
         }
 
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event){
-        this.setState({value: event.target.value});
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleFormSubmit(formSubmitEvent) {
         formSubmitEvent.preventDefault();
-        if(this.state.brandName != '' && this.state.firstName != '' && this.state.firstName != '' && this.state.lastName != '' && this.state.amount != '' && this.state.cardNumber != '' && this.state.cvv != '' && this.state.expDateMonth != '' && this.state.expDateYear != ''){
-            this.setState(state => ({
-                isSubmitted: true
-            }));
+        this.setState(state => ({
+            isSubmitted: true,
+            displayResults: true,
+        }));
+
+    }
+
+    displayResults(){
+        if(this.state.displayResults == true){
+            return (<div>
+                <p>{this.state.firstName}</p> <br/>
+                <p>{this.state.lastName}</p> <br/>
+                <p>{this.state.amount}</p> <br/>
+                <p>{this.state.cardNumber}</p> <br/>
+                <p>{this.state.cvv}</p> <br/>
+                <p>{this.state.expDateMonth}</p> <br/>
+                <p>{this.state.expDateYear}</p> <br/>
+            </div>)
+        }else{
+            return null;
         }
     }
 
@@ -208,51 +218,72 @@ class Purchase extends Component {
             <div>
                 <div className="App">
                     <header className="App-header">
-                        <form onSubmit={this.handleFormSubmit}>
+                        <form className="info" onSubmit={this.handleFormSubmit}>
+                            <Card name={this.props.brandName}/>
                             <div className="fields">
                                 <div className="field">
                                     First Name:
-                                    <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange}/>
+                                    <input type="text" name="firstName" onChange={e => this.setState({ firstName: e.target.value })}/>
                                     <br/>
                                 </div >
                                 <div className="field">
                                     Last Name:
-                                    <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange}/>
+                                    <input type="text" name="lastName" onChange={e => this.setState({ lastName: e.target.value })}/>
                                     <br/>
                                 </div>
                                 <div className="field">
                                     Gift Card Amount:
-                                    <input type="text" name="amount" value={this.state.amount} onChange={this.handleChange}/>
+                                    <input type="text" name="amount" onChange={e => this.setState({ amount: e.target.value })}/>
                                     <br/>
                                 </div>
                                 <div className="field">
                                     Card Number:
-                                    <input type="text" name="cardNumber" value={this.state.cardNumber} onChange={this.handleChange}/>
+                                    <input type="text" name="cardNumber" onChange={e => this.setState({ cardNumber: e.target.value })}/>
                                     <br/>
                                 </div>
                                 <div className="field">
                                     CVV:
-                                    <input type="text" name="cvv" value={this.state.cvv} onChange={this.handleChange}/>
+                                    <input type="text" name="cvv" onChange={e => this.setState({ cvv: e.target.value })}/>
                                     <br/>
                                 </div>
                                 <div className="field">
                                     Expiration Date:
-                                    <input className="expField" type="text" name="cvv" value={this.state.expDateMonth} onChange={this.handleChange}/>
-                                    <input className="expField" type="text" name="cvv" value={this.state.expDateYear} onChange={this.handleChange}/>
+                                    <input className="expField" type="text" name="expDateMonth" onChange={e => this.setState({ expDateMonth: e.target.value })}/>
+                                    <input className="expField" type="text" name="expDateYear" onChange={e => this.setState({ expDateYear: e.target.value })}/>
                                     <br/>
                                 </div>
                             </div>
                             <button className="btn btn-default" type="submit">Submit</button>
                         </form>
+                        {this.displayResults()}
                     </header>
+                    <Receipt firstName={this.state.firstName} lastName={this.state.lastName} firstName={this.state.firstName} amount={this.state.amount} cardNumber={this.state.cardNumber} cvv={this.state.cvv} expDateMonth={this.state.expDateMonth} expDateYear={this.state.expDateYear}/>
                 </div>
             </div>
         );
     }
 }
 
+class Receipt extends Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
 
+        }
+    }
 
+    render(){
+        return(
+            <div className="App">
+                <header className="App-header">
+                    <div className="home">
+
+                    </div>
+                </header>
+            </div>
+        );
+    }
+}
 
 export default App;
