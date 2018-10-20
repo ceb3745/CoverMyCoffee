@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
 class App extends Component {
     constructor () {
@@ -19,7 +20,7 @@ class App extends Component {
                         <p>
                             Pay it Forward, Coffee Style
                         </p>
-                        <button type="submit" onClick={this.handleClick}>Give</button>
+                        <button type="submit" onClick={this.handleClick()}>Give</button>
                     </div>
                 </header>
             </div>
@@ -27,7 +28,8 @@ class App extends Component {
     }
 
     handleClick () {
-        console.log('Success!')
+        axios.get('https://api.github.com/users/maecapozzi')
+            .then(response => this.setState({username: response.data.name}))
     }
 }
 
