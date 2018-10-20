@@ -31,25 +31,165 @@
   }
 }
 
-button{
+a{
+  text-decoration:none;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+a:visited{
+  color:white;
+}
+
+.button{
+
+  text-decoration:none;
   background-color: #3b2712;
   color: white;
   border-color: #4e3418;
   border-style: solid;
   font-weight: bold;
-  font-size: 18px;
-  height: 30%;
-  width: 70%;
-  margin: 40px;
+  font-size: 30px;
+  height: 50px;
+  width: 200px;
+  margin:auto;
 }
 
-button:hover{
+.inner{
+  margin: auto;
+}
+
+.button:hover{
   background-color: #271a0c;
   color: lightgray;
   border-color: white;
 }
 
-.widget{
+.home{
+  display:flex;
+  flex-direction: column;
   background-color: rgba(0, 0, 0, 0.2);
-  padding: 30px 30px 70px 30px;
+  height: 100vh;
+  width: 100vw;
+  font-size: 45px;
 }
+
+.options{
+  display:flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 30px 30px 70px 30px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #4e3418;
+}
+
+.innertwo{
+  margin: 0 auto auto auto;
+}
+
+
+form{
+  width: 50vw;
+  height: auto;
+}
+
+.checkmark{
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  margin: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.checkmark:hover{
+  background-color: #4e3418;
+}
+.card{
+  width: 200px;
+  height: 200%;
+  margin: auto;
+}
+
+.card-text{
+  position: absolute;
+  top: 17%;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: .5em;
+  color: #3b2712;
+  font-weight: bold;
+
+}
+
+.vertical-cards{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.horizontal-cards{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+button{
+  text-decoration:none;
+  background-color: #3b2712;
+  color: white;
+  border-color: #4e3418;
+  border-style: solid;
+  font-weight: bold;
+  border-width: 3px;
+  font-size: 25px;
+  height: 50px;
+  width: 200px;
+  margin:40px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #271a0c;
+  color: lightgray;
+  border-color: white;
+}
+
+.field{
+  text-align: left;
+  padding: 5px;
+  margin: 10px;
+}
+
+input{
+  border-radius: 7px;
+  margin-left: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-color: #271a0c;
+}
+
+.cardIn{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+fields{
+  margin-right: 0;
+}
+
+.expField{
+  width: 5%;
+}
+
