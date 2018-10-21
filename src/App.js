@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { createOrder } from './actions/postActions.js';
-import Router from 'react-dom';
-import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import card from './media/card.png'
+import card from './media/card.png';
+import logo from './media/logo.png';
 import './App.css';
 
 
@@ -72,9 +70,7 @@ class Home extends Component {
                 <header className="App-header">
                     <div className="home">
                         <div className="inner">
-                            <p>
-                                Pay it Forward, Coffee Style
-                            </p>
+                            <img className="logo" src={logo} alt={"logo"}/>
                             <div className="button">
                                 <a href="#options" type="submit" value="Submit">Give</a>
                             </div>
