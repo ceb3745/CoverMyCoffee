@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { createOrder } from './actions/postActions.js';
-import Router from 'react-dom';
-import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import card from './media/card.png'
+import card from './media/card.png';
 import './App.css';
 
 
